@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2019 at 10:05 AM
+-- Generation Time: Dec 05, 2019 at 09:01 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -28,10 +28,16 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `id_admin` int(11) NOT NULL,
-  `password` varchar(16) NOT NULL,
-  `id_laporan` int(11) NOT NULL,
+  `password` varchar(256) NOT NULL,
   `username` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id_admin`, `password`, `username`) VALUES
+(1, '21232f297a57a5a743894a0e4a801fc3', 'admin');
 
 -- --------------------------------------------------------
 
@@ -42,11 +48,19 @@ CREATE TABLE `admin` (
 CREATE TABLE `laporan` (
   `id_laporan` int(11) NOT NULL,
   `nim` varchar(9) NOT NULL,
-  `hal` text NOT NULL,
+  `hal` varchar(256) NOT NULL,
   `lampiran` text NOT NULL,
   `status` enum('MENUNGGU','BERHASIL') NOT NULL,
   `cp` varchar(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `laporan`
+--
+
+INSERT INTO `laporan` (`id_laporan`, `nim`, `hal`, `lampiran`, `status`, `cp`) VALUES
+(1, '14116097', 'Permohonan peringanan biaya uang kuliah tunggal', 'Program Studi Teknik Informatika.docx', 'BERHASIL', '082281718656'),
+(2, '14116097', 'Peniadaan hari tanpa asap di wilayah kampus', '', 'MENUNGGU', '082281718656');
 
 -- --------------------------------------------------------
 
@@ -56,10 +70,18 @@ CREATE TABLE `laporan` (
 
 CREATE TABLE `mahasiswa` (
   `nim` varchar(9) NOT NULL,
-  `password` varchar(16) NOT NULL,
+  `password` varchar(256) NOT NULL,
   `prodi` varchar(24) NOT NULL,
-  `nama` varchar(32) NOT NULL
+  `nama` varchar(32) NOT NULL,
+  `verif` enum('0','1') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mahasiswa`
+--
+
+INSERT INTO `mahasiswa` (`nim`, `password`, `prodi`, `nama`, `verif`) VALUES
+('14116097', 'b0a787a82ffb983d64d1b835a263e607', 'Teknik Informatika', 'Yusuf Firmansyah W. P.', '1');
 
 --
 -- Indexes for dumped tables
@@ -69,8 +91,7 @@ CREATE TABLE `mahasiswa` (
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id_admin`),
-  ADD UNIQUE KEY `id_laporan` (`id_laporan`);
+  ADD PRIMARY KEY (`id_admin`);
 
 --
 -- Indexes for table `laporan`
@@ -92,12 +113,12 @@ ALTER TABLE `mahasiswa`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `laporan`
 --
 ALTER TABLE `laporan`
-  MODIFY `id_laporan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_laporan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
