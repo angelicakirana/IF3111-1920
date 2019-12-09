@@ -291,12 +291,12 @@
       <a href="<?php echo base_url('beranda'); ?>">BERANDA</a>
       <a href="<?php echo base_url('laporan') ?>">LAPORAN</a>
       <a onclick="document.getElementById('id01').style.display='block'">MASUK</a>
+
       <div id="id01" class="modal">
-          <form class="modal-content animate" action="" method="post">
+          <form class="modal-content animate" action="<?php echo base_url('mahasiswa/masuk') ?>" method="post">
             <div class="imgcontainer">
               <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Tutup">&times;</span>
-              <h2>MASUK</h2>
-              <hr>
+              <img src="assets/avatar.png" alt="Avatar" class="avatar">
             </div>
             <div class="container-form">
               <label for="nim"><b>NIM</b></label><br><br>
@@ -312,8 +312,7 @@
             <form class="modal-content animate" action="<?php echo base_url('guest/regis') ?>" method="post">
               <div class="imgcontainer">
                 <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Tutup">&times;</span>
-                <h2>DAFTAR</h2>
-                <hr>
+                <img src="assets/avatar.png" alt="Avatar" class="avatar">
               </div>
               <div class="container-form">
                 <label for="nim"><b>NIM</b></label><br><br>
