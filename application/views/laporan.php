@@ -105,7 +105,6 @@
       margin-top: 30px;
       margin-bottom: 50px;
       text-align: center;
-      font-style:oblique;
     }
     /* The actual timeline (the vertical ruler) */
     .timeline {
@@ -273,7 +272,6 @@
       cursor: pointer;
       transition: 0.3s;
     }
-
     </style>
     <title>Lapor ITERA</title>
   </head>
@@ -291,9 +289,8 @@
       <a href="<?php echo base_url('beranda'); ?>">BERANDA</a>
       <a href="<?php echo base_url('laporan') ?>">LAPORAN</a>
       <a onclick="document.getElementById('id01').style.display='block'">MASUK</a>
-
       <div id="id01" class="modal">
-          <form class="modal-content animate" action="<?php echo base_url('mahasiswa/masuk') ?>" method="post">
+          <form class="modal-content animate" action="<?php echo base_url('authm/login'); ?>" method="post">
             <div class="imgcontainer">
               <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Tutup">&times;</span>
               <img src="assets/avatar.png" alt="Avatar" class="avatar">
@@ -302,7 +299,7 @@
               <label for="nim"><b>NIM</b></label><br><br>
               <input type="number" placeholder="Masukkan NIM" name="nim" required autocomplete="off">
               <br><br><label for="psw"><b>Kata Sandi</b></label>
-              <input type="password" placeholder="Masukkan kata Sandi" name="psw" required>
+              <input type="password" placeholder="Masukkan kata Sandi" name="password" required>
               <button type="submit">Masuk</button>
             </div>
           </form>
@@ -347,7 +344,12 @@
             <h2><?php echo $daftar['nama']; ?></h2>
             <p class="title"><?php echo $daftar['prodi']; ?> - <?php echo $daftar['nim']; ?></p>
             <p><?php echo $daftar['hal']; ?></p>
+            <?php if ($daftar['lampiran'] == null) {
+              $daftar['lampiran'] = "-";
+            } ?>
+            <p>Lampiran : <?php echo $daftar['lampiran']; ?></p>
             <p>Status : <?php echo $daftar['status']; ?></p>
+            <p>Waktu : <?php echo $daftar['created']; ?></p>
           </div>
         </div>
       </div>

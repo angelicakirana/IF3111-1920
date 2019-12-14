@@ -13,9 +13,9 @@ class Guest_model extends CI_Model
 
   function list_data($keyword)
   {
-    $this->db->SELECT('laporan.nim, laporan.hal, laporan.lampiran,
+    $this->db->SELECT('laporan.id_laporan, laporan.nim, laporan.hal, laporan.lampiran,
                        laporan.status, laporan.cp, mahasiswa.nama,
-                       mahasiswa.prodi');
+                       mahasiswa.prodi, laporan.created');
     $this->db->FROM('laporan');
     $this->db->JOIN('mahasiswa', 'laporan.nim = mahasiswa.nim');
     if ($keyword != '') {
@@ -24,7 +24,7 @@ class Guest_model extends CI_Model
       $this->db->or_like('mahasiswa.nama', $keyword);
       $this->db->or_like('mahasiswa.prodi', $keyword);
     }
-    $this->db->order_by('laporan.status', 'ASC');
+    $this->db->order_by('laporan.id_laporan', 'DESC');
     return $this->db->get();
   }
 

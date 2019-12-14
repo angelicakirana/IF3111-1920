@@ -8,22 +8,34 @@ class Mahasiswa_model extends CI_Model
     $this->load->database();
   }
 
-  function buatlaporan()
-  {
-    $data = [
-              "nim"        => $this->input->post('nim', true),
-              "hal"        => $this->input->post('hal', true),
-              "lampiran"   => $this->input->post('lampiran', true),
-              "cp"         => $this->input->post('cp', true),
-              "status"     => "MENUNGGU"
-            ];
+function getinfomhs($nim)
+{
+  return $this->db->get_where('mahasiswa', ['nim'=>$nim])->row_array();
+}
 
-    $this->db->insert('laporan', $data);
-  }
+function hapusmhs($nim)
+{
+  $this->db->where('nim', $nim);
+  $this->db->delete('mahasiswa');
+}
+
+function aktivasi($nim)
+{
+  $this->db->set('verif', "1");
+  $this->db->where('nim', $nim);
+  $this->db->update('mahasiswa');
+}
+
+function unaktivasi($nim)
+{
+  $this->db->set('verif', "0");
+  $this->db->where('nim', $nim);
+  $this->db->update('mahasiswa');
+}
+
 
 
 
 }
-
 
  ?>
