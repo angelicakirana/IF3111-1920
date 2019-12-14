@@ -343,10 +343,15 @@
           <div class="container-team">
             <h2><?php echo $daftar['nama']; ?></h2>
             <p class="title"><?php echo $daftar['prodi']; ?> - <?php echo $daftar['nim']; ?></p>
+            <p><?php echo $daftar['aspek']; ?></p>
+                <?php if ($daftar['aspek'] == null) {
+                  $daftar['aspek'] = "-";
+                } ?>
             <p><?php echo $daftar['hal']; ?></p>
             <?php if ($daftar['lampiran'] == null) {
               $daftar['lampiran'] = "-";
             } ?>
+            <p>Aspek: <?php echo $daftar['aspek']; ?></p>
             <p>Lampiran : <?php echo $daftar['lampiran']; ?></p>
             <p>Status : <?php echo $daftar['status']; ?></p>
             <p>Waktu : <?php echo $daftar['created']; ?></p>

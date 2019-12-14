@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2019 at 05:18 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- Generation Time: Dec 14, 2019 at 07:33 AM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -50,20 +50,23 @@ INSERT INTO `admin` (`id_admin`, `password`, `username`) VALUES
 CREATE TABLE `laporan` (
   `id_laporan` int(11) NOT NULL,
   `nim` varchar(9) NOT NULL,
+  `aspek` varchar(50) NOT NULL,
   `hal` varchar(256) NOT NULL,
   `lampiran` text NOT NULL,
   `status` enum('MENUNGGU','BERHASIL') NOT NULL,
   `cp` varchar(13) NOT NULL,
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `laporan`
 --
 
-INSERT INTO `laporan` (`id_laporan`, `nim`, `hal`, `lampiran`, `status`, `cp`, `created`) VALUES
-(1, '14116097', 'Permohonan peringanan biaya uang kuliah tunggal', 'Program Studi Teknik Informatika.docx', 'BERHASIL', '082281718656', '2019-12-13 14:46:10'),
-(2, '14116097', 'Peniadaan hari tanpa asap di wilayah kampus', '', 'MENUNGGU', '082281718656', '2019-12-13 14:46:10');
+INSERT INTO `laporan` (`id_laporan`, `nim`, `aspek`, `hal`, `lampiran`, `status`, `cp`, `created`) VALUES
+(1, '14116097', '', 'Permohonan peringanan biaya uang kuliah tunggal', 'Program Studi Teknik Informatika.docx', 'BERHASIL', '082281718656', '2019-12-13 14:46:10'),
+(2, '14116097', '', 'Peniadaan hari tanpa asap di wilayah kampus', '', 'MENUNGGU', '082281718656', '2019-12-13 14:46:10'),
+(5, '14117101', '', 'Jalanan Rusak', 'header.jpg', 'MENUNGGU', '082167423559', '2019-12-14 04:25:26'),
+(6, '14117101', 'Dosen', 'Tes Dosen', 'header.jpg', 'MENUNGGU', '082167423559', '2019-12-14 06:14:47');
 
 -- --------------------------------------------------------
 
@@ -84,7 +87,8 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`nim`, `password`, `prodi`, `nama`, `verif`) VALUES
-('14116097', 'b0a787a82ffb983d64d1b835a263e607', 'Teknik Informatika', 'Yusuf Firmansyah W. P.', '1');
+('14116097', 'b0a787a82ffb983d64d1b835a263e607', 'Teknik Informatika', 'Yusuf Firmansyah W. P.', '1'),
+('14117101', '8217e4231b715950b7c772ddef2623e9', 'Teknik Informatika', 'Robby Legitra', '1');
 
 --
 -- Indexes for dumped tables
@@ -122,7 +126,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `laporan`
 --
 ALTER TABLE `laporan`
-  MODIFY `id_laporan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_laporan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

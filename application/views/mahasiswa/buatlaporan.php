@@ -89,8 +89,8 @@
         <h1 style="text-align:center;">FORMULIR LAPORAN</h1>
         <hr>
         <br>
-        <a href="<?php echo base_url('mahasiswa/beranda'); ?>" class="btn buat"><button>KEMBALI
-  </button>
+        <a href="<?php echo base_url('mahasiswa/beranda'); ?>" class="btn buat">
+        <button>KEMBALI</button>
         </a>
         <br><br>
 
@@ -101,6 +101,17 @@
 
             <label for="lname">Kontak Pribadi (Nomor Telepon) : </label>
             <input type="tel" size="23" maxlength="13" name="cp" placeholder="ex: 082281718656" required autocomplete="off"><br><br>
+
+            <div class="aspek">
+                <select name="aspek">
+                    <option default>Pilih Aspek Pelaporan/Komentar</option>
+                    <option value="Dosen">Dosen</option>
+                    <option value="Staff">Staff</option>
+                    <option value="Mahasiswa">Mahasiswa</option>
+                    <option value="Infrastruktur">Infrastruktur</option>
+                    <option value="Pengajaran">Pengajaran</option>
+                </select>
+            </div>
 
             <label for="subject">Hal</label>
             <textarea name="hal" placeholder="Hal..." style="height:200px" required autocomplete="off"></textarea>

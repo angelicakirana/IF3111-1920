@@ -39,6 +39,7 @@ class User_model extends CI_Model {
   {
     $lampiran = $_FILES['berkas']['name'];
     $nim = $this->input->post('nim');
+    $aspek = $this->input->post('aspek');
     $cp = $this->input->post('cp');
     $hal = $this->input->post('hal');
     $status = "MENUNGGU";
@@ -57,6 +58,7 @@ class User_model extends CI_Model {
 
     $data = array(
                     'nim' => $nim,
+                    'aspek' => $aspek,
                     'cp' => $cp,
                     'hal' => $hal,
                     'status' => $status,

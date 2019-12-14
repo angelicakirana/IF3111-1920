@@ -13,7 +13,7 @@ class Guest_model extends CI_Model
 
   function list_data($keyword)
   {
-    $this->db->SELECT('laporan.id_laporan, laporan.nim, laporan.hal, laporan.lampiran,
+    $this->db->SELECT('laporan.id_laporan, laporan.nim, laporan.aspek, laporan.hal, laporan.lampiran,
                        laporan.status, laporan.cp, mahasiswa.nama,
                        mahasiswa.prodi, laporan.created');
     $this->db->FROM('laporan');
