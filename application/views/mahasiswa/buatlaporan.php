@@ -89,7 +89,9 @@
         <h1 style="text-align:center;">FORMULIR LAPORAN</h1>
         <hr>
         <br>
-        <a href="<?php echo base_url('mahasiswa/beranda'); ?>" class="btn buat">KEMBALI</a>
+        <a href="<?php echo base_url('mahasiswa/beranda'); ?>" class="btn buat"><button>KEMBALI
+  </button>
+        </a>
         <br><br>
 
         <div class="container">
@@ -98,7 +100,7 @@
             <input type="text" name="nim" value="<?php echo $this->session->userdata("nim"); ?>" readonly>
 
             <label for="lname">Kontak Pribadi (Nomor Telepon) : </label>
-            <input type="tel" size="13" maxlength="13" name="cp" placeholder="ex: 082281718656" required autocomplete="off"><br><br>
+            <input type="tel" size="23" maxlength="13" name="cp" placeholder="ex: 082281718656" required autocomplete="off"><br><br>
 
             <label for="subject">Hal</label>
             <textarea name="hal" placeholder="Hal..." style="height:200px" required autocomplete="off"></textarea>

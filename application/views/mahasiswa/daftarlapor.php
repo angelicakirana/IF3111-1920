@@ -157,7 +157,7 @@
       <hr>
       <div class="laporan">
         <h1 style="text-align:center;">DAFTAR LAPORAN</h1>
-        <a href="<?php echo base_url('mahasiswa/buatlaporan/'.$this->session->userdata("nim")); ?>" class="btn buat">BUAT LAPORAN</a>
+        <a href="<?php echo base_url('mahasiswa/buatlaporan/'.$this->session->userdata("nim")); ?>" class="btn buat"><button>BUAT LAPORAN</button></a>
         <br>
         <?php if($this->session->flashdata('pesan')): ?>
         <div class="alert">
