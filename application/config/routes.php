@@ -55,3 +55,6 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['beranda'] = 'guest';
 $route['laporan'] = 'guest/cari';
+$route['admin/login'] = 'auth';
+$route['admin/login'] = 'auth/login';
+$route['mahasiswa/daftarlapor'] = 'authm/login';
